@@ -16,12 +16,16 @@ const handleOperation = require('./handleOperation');
 
 const URL_3 = '/tankstellen?searchText=84174&brand=0&fuel=2&range=15';
 
-const sweetAlarm = (text) => {
+const sweetAlarm = (ErrorText) => {
   Swal.fire({
-    title: text,
+    title: `<p style="color:white;">Achtung !</p>`,
+    html: `<p style="color:white;">${ErrorText}</p>`,
+    ErrorText,
     width: 600,
     padding: '3em',
     background: '#ff0000',
+    timer: 50000,
+    icon: 'warning',
     backdrop: `
     rgba(255, 99, 71, 0.8)    `,
   });
@@ -71,17 +75,13 @@ const PriceTable = () => {
         let aSetTankstellen = getTankstelleData(resp.data);
         aSetTankstelle(aSetTankstellen);
         let tankstellenPreis = findTankstelle(aSetTankstellen);
-        let opResults = handleOperation();
+        let opResults = handleOperation(tankstellenPreis);
         if (opResults.alert) {
           sweetAlarm(opResults.Text);
         }
-
         var now = new Date();
         setDate(now.toLocaleString());
         console.log(tankstellenPreis);
-      })
-      .catch((err) => {
-        sweetAlarm('SERVER IS NOT AVAILABLE');
       });
   };
   useEffect(() => {
