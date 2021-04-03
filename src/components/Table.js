@@ -14,7 +14,8 @@ import {
 const getTankstelleData = require('./getTankstellePreis');
 const handleOperation = require('./handleOperation');
 
-const URL_3 = '/tankstellen?searchText=84174&brand=0&fuel=2&range=15';
+const URL_3 =
+  'https://mehr-tanken.de/tankstellen?searchText=84174&brand=0&fuel=2&range=15';
 
 const sweetAlarm = (ErrorText) => {
   Swal.fire({
@@ -69,6 +70,7 @@ const PriceTable = () => {
           'Access-Control-Allow-Credentials': 'true',
           'Access-Control-Allow-Headers':
             'Origin, X-Requested-With, Content-Type, Accept',
+          'Access-Control-Allow-Origin': '*',
         },
       })
       .then((resp) => {
