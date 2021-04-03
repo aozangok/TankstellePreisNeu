@@ -4,12 +4,14 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const path = require('path');
 const port = process.env.PORT || 8080;
 const app = express();
+const URL_3 = '/tankstellen?searchText=84174&brand=0&fuel=2&range=15';
+
 app.use(favicon(__dirname + '/build/favicon.ico'));
 // the __dirname is the current directory from where the script is running
 app.use(express.static(__dirname));
 app.use(
   '/api',
-  createProxyMiddleware({
+  createProxyMiddleware(URL_3, {
     target: 'https://mehr-tanken.de',
     changeOrigin: true,
   })
