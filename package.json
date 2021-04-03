@@ -2,7 +2,7 @@
   "name": "tankstelle_preis_alarm",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000/",
+  "proxy": "https://mehr-tanken.de",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@testing-library/jest-dom": "^5.11.9",
@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "htmlparser2": "^6.0.1",
+    "http-proxy-middleware": "^1.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.3",
